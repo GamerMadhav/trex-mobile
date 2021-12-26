@@ -129,11 +129,11 @@ function clouds() {
 }
 function obsatcles() {
   if (frameCount%60===0) {
-    var obstacle=createSprite(600,hieght-95,20,30);
+    var obstacle=createSprite(600,height-95,20,30);
     obstacle.scale=.3;
     obstacle.setCollider("circle",0,0,45);
     obstacle.velocityX=-6;
-    var rand=Math.round(random(1,4));
+    var rand=Math.round(random(1,2));
     switch (rand) {
       case 1:
         obstacle.addImage(obstacle1);
@@ -141,12 +141,7 @@ function obsatcles() {
         case 2:
          obstacle.addImage(obstacle2);
           break;
-          case 3:
-        obstacle.addImage(obstacle3);
-        break;
-        case 4:
-        obstacle.addImage(obstacle4);
-        break;
+       ;
     }
     obstacle.lifetime=300;
     obstacle.depth=trex.depth;
