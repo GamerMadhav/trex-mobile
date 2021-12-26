@@ -58,7 +58,7 @@ game.addImage("gameover",gameover);
 game.scale=.5
 restart1=createSprite(width/2,height/2)
 restart1.addImage("restart",restart)
-restart1.scale=.5
+restart1.scale=.1
 }
 
 
