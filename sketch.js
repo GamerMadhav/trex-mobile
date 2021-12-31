@@ -49,8 +49,8 @@ ground.x=width/2;
 invisibleGround=createSprite(width/2,height-10,width,125);
 invisibleGround.shapeColor="#f4cbaa";
 
-obstaclegroup=createGroup();
-cloudgroup=createGroup();
+obstaclegroup=new Group();
+cloudgroup=new Group();
 
 trex.debug=false;
 game=createSprite(width/2,height/2-50);
@@ -80,10 +80,11 @@ function draw(){
     ground.x=ground.width/2;
     }
   //jump when space key is pressed
-      if(keyDown("UP_ARROW")&& trex.y>= height-120)
+      if(touches.length>0 && trex.y>= height-120)
       {
         jump.play();
         trex.velocityY=-10;
+        touches=[];
       }
     trex.velocityY=trex.velocityY+.8;
     
@@ -106,8 +107,9 @@ else if (gamestate===END) {
   cloudgroup.destroyEach();
 }
  trex.collide(invisibleGround);
- if (mousePressedOver(restart1)) {
+ if (touches.length>0) {
    reset();
+   touches=[];
  }
   drawSprites();
 }
